@@ -188,7 +188,7 @@ resource "aws_route53_record" "users_api_cert_val" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = "Z0959434624C4DPQXHIJ"
+  zone_id         = var.route53_zone_id
 }
 
 resource "aws_acm_certificate_validation" "users_api_cert_validation" {
@@ -224,7 +224,7 @@ resource "aws_route53_record" "game_engine_api_cert_val" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = "Z0959434624C4DPQXHIJ"
+  zone_id         = var.route53_zone_id
 }
 
 resource "aws_acm_certificate_validation" "game_engine_cert_validation" {
@@ -260,7 +260,7 @@ resource "aws_route53_record" "apigw_cert_val" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = "Z0959434624C4DPQXHIJ"
+  zone_id         = var.route53_zone_id
 }
 
 resource "aws_acm_certificate_validation" "apigw_cert_validation" {

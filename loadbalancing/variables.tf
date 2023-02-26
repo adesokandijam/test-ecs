@@ -24,3 +24,7 @@ variable "elb_interval" {
 variable "gamma_lb_sg" {
 
 }
+
+variable "route53_zone_id" {
+  
+}

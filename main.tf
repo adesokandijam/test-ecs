@@ -15,6 +15,7 @@ module "loadbalancing" {
   elb_healthy_threshold   = 2
   elb_unhealthy_threshold = 2
   elb_interval            = 30
+  route53_zone_id = var.route53_zone_id
   elb_timeout             = 3
   gamma_lb_sg            = [module.networking.loadbalancer_https_security_group, module.networking.loadbalancer_http_security_group]
 }
@@ -61,6 +62,7 @@ module "mongo" {
 module "route53" {
   source        = "./route53"
   gamma_lb_dns = module.loadbalancing.gamma_lb_dns
+  route53_zone_id = var.route53_zone_id
 }
 
 module "s3" {
@@ -74,3 +76,4 @@ module "ec2" {
   gamma_mongo_jumper_sg = module.networking.mongo_jumper_security_group
   public_subnet          = module.networking.public_subnet
 }
+
